@@ -160,7 +160,7 @@ client.on('guildMemberAdd', member => {
 
 
 client.on('message', async message =>{
-  var prefix = "#";
+  var prefix = "+";
   if(message.content.startsWith(prefix + 'fkk')) {
 if (message.author.omar) return;
 if (fkkRecently.has(message.author.id)) {
@@ -170,13 +170,13 @@ if (fkkRecently.has(message.author.id)) {
 .setTitle("إنتظر 10 ثواني");
   message.channel.send(timeoute).then(msg => {msg.delete(3000)});
 } else {
-let names = ['ويكيبيديا','عبدالله','سيباويه','طائر اللقلاق','كثر شطه',
+let curback = ['ويكيبيديا','عبدالله','سيباويه','طائر اللقلاق','كثر شطه',
 'القس','القسطنطينية','الديموقراطية','الرفادة','الاباخس','الاثير','اثيوبيا','السعودية','الكويت','البحرين','الامارات','عمان',
 'الناطس','سيناء','الاردن','همالايا','شهريار','شهرزاد','الشاهنشاه','الخنساء','الفررزدق','الجلجال','الاكتم',
 'الوخواخ','الجاحظ','الشمطاء','اليمامة','كارتيه','كوستاريكا','الاعسر','الاوقص','الاخفش','الاشيم','القاريط',
 'المتحفنش','متعقرط','شعافيل','القرانيط','الجرشى','كليجة','لاتينية','استاتيكا','استراتيجية','اكسسوار','ايدرولوجيا','اسكيمو',
 'ابستيمولوجيا','امبريالي','إلكتروني','اصطبل','اسرائيليات','معايا زميل']
-let a = names[Math.floor(Math.random() * names.length)]
+let a = curback[Math.floor(Math.random() * curback.length)]
 let atime = Date.now()
 let curChar2;
 let ans =''
