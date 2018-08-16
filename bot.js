@@ -45,7 +45,7 @@ client.on('guildMemberAdd', (member,inviter )=> {
 var Canvas = require('canvas')
 var jimp = require('jimp')
 
-const w = ['./Data/w1.png'];
+const w = ['w1.png'];
 
          let Image = Canvas.Image,
             canvas = new Canvas(400, 200),
@@ -152,6 +152,158 @@ client.on('guildMemberAdd', member => {
   
   });
 });
+
+
+
+
+client.on('message', async message =>{
+  var prefix = "#";
+  if(message.content.startsWith(prefix + 'فكك')) {
+if (message.author.omar) return;
+if (fkkRecently.has(message.author.id)) {
+  message.delete();
+  let timeoute = new Discord.RichEmbed()
+.setColor("#C2C2C2")
+.setTitle("إنتظر 10 ثواني");
+  message.channel.send(timeoute).then(msg => {msg.delete(3000)});
+} else {
+let names = ['ويكيبيديا','عبدالله','سيباويه','طائر اللقلاق','كثر شطه',
+'القس','القسطنطينية','الديموقراطية','الرفادة','الاباخس','الاثير','اثيوبيا','السعودية','الكويت','البحرين','الامارات','عمان',
+'الناطس','سيناء','الاردن','همالايا','شهريار','شهرزاد','الشاهنشاه','الخنساء','الفررزدق','الجلجال','الاكتم',
+'الوخواخ','الجاحظ','الشمطاء','اليمامة','كارتيه','كوستاريكا','الاعسر','الاوقص','الاخفش','الاشيم','القاريط',
+'المتحفنش','متعقرط','شعافيل','القرانيط','الجرشى','كليجة','لاتينية','استاتيكا','استراتيجية','اكسسوار','ايدرولوجيا','اسكيمو',
+'ابستيمولوجيا','امبريالي','إلكتروني','اصطبل','اسرائيليات','معايا زميل']
+let a = names[Math.floor(Math.random() * names.length)]
+let atime = Date.now()
+let curChar2;
+let ans =''
+let last='';
+let curback = ['./img/fkk/fkk1.jpg','./img/fkk/fkk2.jpg','./img/fkk/fkk3.jpg','./img/fkk/fkk4.jpg','./img/fkk/fkk5.jpg','./img/fkk/fkk6.jpg','./img/fkk/fkk7.jpg'];
+let Image = Canvas.Image,
+canvas = new Canvas(1000, 171),
+ctx = canvas.getContext('2d');
+ctx.patternQuality = 'bilinear';
+ctx.filter = 'bilinear';
+ctx.antialias = 'subpixel';
+ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+ctx.shadowOffsetY = 2;
+ctx.shadowBlur = 2;
+fs.readFile(`${curback[Math.floor(Math.random() * curback.length)]}`,async function (err, Background) {
+if (err) return console.log(err);
+let ground = new Image;
+ground.src = Background;
+await ctx.drawImage(ground, 0, 0, 1000, 171);
+
+
+                    ctx.font = '72px Arial';
+                    ctx.fontSize = '72px';
+                    ctx.fillStyle = "#000000";
+                    ctx.textAlign = "center";
+                    ctx.fillText(a, 500, 86);
+message.channel.send(`**: فكك الكلام الموجود بالصورة التالية في اقل من **__10 ثواني__`)
+message.channel.send({files: [canvas.toBuffer()]})
+  .then(function(){
+      setTimeout(function(){
+    message.channel.send(`**إنتهى الوقت**`);
+}, 10000);
+           const collector = new Discord.MessageCollector(message.channel, m => m.guild.member, { time: 10000 })
+    
+  collector.on('collect', message => {
+
+         let ans = message.content;
+      
+    let myArray2 = [];
+
+    for(let i= 0; i < a.length ; i++){
+         
+curChar2= a.charAt(i);
+myArray2[i] = curChar2;    
+      }
+      for(let i= 0; i < a.length ; i++){
+        if(a.charAt(i) === ' ') continue; 
+last = last +myArray2[i] +' '
+
+}
+
+   
+      console.log(ans)
+    console.log(last)
+    
+    if (ans = ans + ' ' === last) {
+      let btime=Date.now()
+      
+     message.channel.send(`__${prettyMs((btime - atime), {verbose: true})}__ **إجابة صحيحة وفي وقت قياسي ${message.author} ألف مبروك**`)
+     con.query(`SELECT * FROM score WHERE UserID = '${message.author.id}'`, (err, rows) =>{
+      if (err) throw err;
+      let curpoints = rows[0].Points;
+  
+     let sql;
+    sql = `UPDATE score SET Points = ${curpoints + 1} WHERE UserID = '${message.author.id}'`;
+    con.query(sql)
+       })
+     collector.stop();
+    }
+      else{
+       last = '' 
+
+      }
+
+    })
+})
+})
+}
+fkkRecently.add(message.author.id);
+    setTimeout(() => {
+      fkkRecently.delete(message.author.id);
+    }, 10000);
+      
+  
+}
+
+});
+
+
+
+
+client.on('message', message => {
+
+    if (message.content.startsWith("رابط")) {        
+  message.channel.createInvite({
+        thing: true,
+        maxUses: 100,
+        maxAge: 86400
+    }).then(invite =>  
+      message.author.sendMessage(invite.url)
+    )
+    const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(" ✅ تم ارسال الرابط على الخاص ")
+      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
+              const Embed11 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+                .setAuthor(message.guild.name, message.guild.iconURL)
+        .setDescription(`
+---------------------
+ 😚  - هذا الرابط صالح ل 100 مستخدم فقط
+---------------------
+ 😃 - هذا الرابط صالح لمده 24 ساعه فقط
+---------------------`)
+      message.author.sendEmbed(Embed11)
+    }
+ 
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 client.login(process.env.BOT_TOKEN);
