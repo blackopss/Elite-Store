@@ -48,7 +48,7 @@ var jimp = require('jimp')
 const w = ['./Data/w1.png'];
 
          let Image = Canvas.Image,
-            canvas = new Canvas(400, 200),
+            canvas = new Canvas(2000, 600),
             ctx = canvas.getContext('2d');
         fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
             if (err) return console.log(err);
