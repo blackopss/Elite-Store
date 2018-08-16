@@ -55,7 +55,7 @@ const w = ['./Data/w1.png'];
             let BG = Canvas.Image;
             let ground = new Image;
             ground.src = Background;
-            ctx.drawImage(ground, 0, 0, 400, 200);
+            ctx.drawImage(ground, 0, 0, 2000, 600);
              const wait = require('util').promisify(setTimeout);
 client.on('ready', () => {
   wait(1000);
