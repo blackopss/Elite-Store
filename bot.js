@@ -158,7 +158,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', async message =>{
   var prefix = "#";
-  if(message.content.startsWith(prefix + 'فكك')) {
+  if(message.content.startsWith(prefix + 'fkk')) {
 if (message.author.omar) return;
 if (fkkRecently.has(message.author.id)) {
   message.delete();
