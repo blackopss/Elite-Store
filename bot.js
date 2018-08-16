@@ -45,7 +45,7 @@ client.on('guildMemberAdd', (member,inviter )=> {
 var Canvas = require('canvas')
 var jimp = require('jimp')
 
-const w = ['w1.png'];
+const w = ['./Data/w1.png'];
 
          let Image = Canvas.Image,
             canvas = new Canvas(400, 200),
