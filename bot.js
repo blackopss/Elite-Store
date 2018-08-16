@@ -48,7 +48,7 @@ var jimp = require('jimp')
 const w = ['./Data/w1.png'];
 
          let Image = Canvas.Image,
-            canvas = new Canvas(2000, 600),
+            canvas = new Canvas(400, 200),
             ctx = canvas.getContext('2d');
         fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
             if (err) return console.log(err);
@@ -158,7 +158,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', async message =>{
   var prefix = "#";
-  if(message.content.startsWith(prefix + 'فكك')) {
+  if(message.content.startsWith(prefix + 'fkk')) {
 if (message.author.omar) return;
 if (fkkRecently.has(message.author.id)) {
   message.delete();
