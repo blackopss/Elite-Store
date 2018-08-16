@@ -17,7 +17,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers `);
     console.log(`---------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity(`Elite Store| ${client.guilds.size}`, {type: "PLAYING"});
+  client.user.setActivity(`Elite Store`, {type: "PLAYING"});
 });
 
 
