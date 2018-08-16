@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
 const fkkRecently = new Set();
+var Canvas = require('canvas')
 const dateFormat = require('dateformat');
 
 
